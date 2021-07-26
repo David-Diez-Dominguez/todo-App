@@ -1,0 +1,38 @@
+<div id="content">
+  <section id="title"><span id="title-text">Add a new ToDo</span>
+    <i class="far fa-times-circle" id="button-cancel" (click)="dialog.ngOnDestroy()"></i>
+    <i *ngIf="oldTodo !== null" class="fas fa-trash" id="button-delete" (click)="deleteTodo()"></i>
+  </section>
+
+  <form class="text-entries">
+    <mat-form-field id="title-field" appearance="fill">
+      <mat-label id="newTitleLabel">Title</mat-label>
+      <input matInput placeholder="" value="" id="newTitle" required>
+    </mat-form-field>
+    <mat-form-field id="author-field" appearance="fill">
+      <mat-label>Author</mat-label>
+      <input matInput placeholder="" value="" id="newAuthor">
+    </mat-form-field>
+    <mat-form-field id="description-field" appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="" id="newDescription"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Group</mat-label>
+      <select matNativeControl id="selectedGroup">
+        <option *ngFor="let group of groups" value="{{group.groupId}}">{{group.name}}</option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Expiration date</mat-label>
+      <input matInput [matDatepicker]="picker" id="newExpirationDate">
+      <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </form>
+  <span style="text-align: center"><button id="submitbutton" (click)="submit()">Submit</button></span>
+</div>

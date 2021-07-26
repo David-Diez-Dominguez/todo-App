@@ -1,0 +1,22 @@
+<div id="content">
+  <section id="title"><span id="title-text">Add a new group</span>
+    <i class="far fa-times-circle" id="button-cancel" (click)="dialog.ngOnDestroy()"></i>
+    <i *ngIf="oldGroup !== null" class="fas fa-trash" id="button-delete" (click)="deleteGroup()"></i>
+  </section>
+
+  <form class="text-entries">
+    <mat-form-field id="title-field" appearance="fill">
+      <mat-label id="newNameLabel">Group name</mat-label>
+      <input matInput placeholder="" value="" id="newName" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Group color</mat-label>
+      <select id="selectedColor" matNativeControl required>
+        <option value="black" style="color:black">Black</option>
+        <option value="red" style="color:red">Red</option>
+        <option value="Green" style="color: green">Green</option>
+      </select>
+    </mat-form-field>
+  </form>
+  <span style="text-align: center"><button id="submitbutton" (click)="submit()">Submit</button></span>
+</div>

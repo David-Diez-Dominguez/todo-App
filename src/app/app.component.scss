@@ -1,0 +1,45 @@
+
+#navbar {
+  position: static;
+  width: 100%;
+  height: 65px;
+  padding-bottom: 5px;
+}
+
+#todoapp {
+  margin-left: 5%;
+  font-family: "Segoe UI", serif;
+}
+
+#home {
+  position: relative;
+  width: 50%;
+  float: left;
+  margin: 25px;
+  border: none;
+  background: none;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#addnewbutton {
+  background: none;
+  color: white;
+  font-size: 30px;
+  float: right;
+  margin: 25px 25px 20px 20px;
+  padding: 4px 5px;
+  border-radius: 5px;
+}
+#addnewbutton:hover {
+  transition: 0.3s;
+  background-color: rgba(105, 105, 105, 0.4);
+}
+
+#home:hover {
+  cursor: pointer;
+}
+#addnewbutton:hover {
+  cursor: pointer;
+}

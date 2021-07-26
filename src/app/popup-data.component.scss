@@ -1,0 +1,52 @@
+#content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#title {
+  border-bottom: 1px solid var(--main-text-color);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  color: var(--main-text-color);
+}
+
+#title-field {
+  width: 70%;
+}
+#author-field {
+  width: 25%;
+  margin-left: 2%;
+  float: right;
+}
+#description-field {
+  width: 100%;
+}
+#submitbutton {
+  margin-top: 50px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  width: 30%;
+  background-color: #52b788;
+  color: white;
+  position: absolute;
+  right: 35%;
+  bottom: 0;
+}
+
+
+#button-cancel, #button-delete {
+  position: static;
+  float: right;
+  font-size: 18px;
+  margin-left: 5px;
+  padding: 3px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#button-cancel:hover, #button-delete:hover {
+  transition: 0.3s;
+  background: rgba(105, 105, 105, 0.2);
+}

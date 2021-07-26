@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+
+
+$background-yellow: #FFE181;
+$blue-main: #819fff;
+$gray-text: #696969;
+$font-size: 14px;
+$border-radius: 20px;
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:  "Helvetica Neue", sans-serif;
+  //background: rgb(3, 62, 94);
+  //background: linear-gradient(180deg, rgb(32, 156, 187) 0%, rgba(0,150,199,1) 88%);
+  background: rgb(238,174,202);
+  background: linear-gradient(180deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  --main-text-color: #03045e;
+}
+
+button:hover {
+  cursor: pointer;
+}
