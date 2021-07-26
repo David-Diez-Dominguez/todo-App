@@ -7,7 +7,7 @@
   <form class="text-entries">
     <mat-form-field id="title-field" appearance="fill">
       <mat-label id="newNameLabel">Group name</mat-label>
-      <input matInput placeholder="" value="" id="newName" required>
+      <input matInput placeholder="" value="" id="name-input" required>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Group color</mat-label>
@@ -18,5 +18,5 @@
       </select>
     </mat-form-field>
   </form>
-  <span style="text-align: center"><button id="submitbutton" (click)="submit()">Submit</button></span>
+  <div id="submit-button-wrapper"><button id="submit-button" (click)="submit()">Submit</button></div>
 </div>

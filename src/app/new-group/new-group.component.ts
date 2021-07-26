@@ -13,11 +13,11 @@ export class NewGroupComponent implements OnInit {
 
   submitPressed: boolean;
 
-  async ngOnInit() {
+  ngOnInit() {
     this.submitPressed = false;
-    if (this.oldGroup !== null) {
+    if (this.oldGroup != null) {
       (document.getElementById('title-text') as HTMLInputElement).innerHTML = "Update this group";
-      (document.getElementById('newName') as HTMLInputElement).value = this.oldGroup.name;
+      (document.getElementById('name-input') as HTMLInputElement).value = this.oldGroup.name;
       (document.getElementById('selectedColor') as HTMLInputElement).value = this.oldGroup.color;
     }
   }
@@ -25,7 +25,7 @@ export class NewGroupComponent implements OnInit {
 
   submit() {
     if (this.submitPressed) { return; }
-    const name = (document.getElementById('newName') as HTMLInputElement).value;
+    const name = (document.getElementById('name-input') as HTMLInputElement).value;
     if (name === '') {
       const label = document.getElementById('newNameLabel');
       label.style.color = 'red';

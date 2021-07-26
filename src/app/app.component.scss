@@ -16,7 +16,6 @@
   width: 50%;
   float: left;
   margin: 25px;
-  border: none;
   background: none;
   color: white;
   font-weight: bold;
@@ -32,6 +31,7 @@
   padding: 4px 5px;
   border-radius: 5px;
 }
+
 #addnewbutton:hover {
   transition: 0.3s;
   background-color: rgba(105, 105, 105, 0.4);
@@ -40,32 +40,35 @@
 #home:hover {
   cursor: pointer;
 }
+
 #addnewbutton:hover {
   cursor: pointer;
 }
 
-#auth{
-text-align: center;
+
+#auth {
+  text-align: center;
 }
 
-.inputField{
+.inputField {
   padding: 10px;
   border-radius: 5px;
   border-color: white;
   margin: 10px;
-  
+
 }
 
-.authBtn{
+.authBtn {
   height: 40px;
-  width: 100px ;
+  width: 100px;
   border-radius: 5px;
   background-color: rgb(230, 222, 222);
 }
 
-#logoutBtn{
+#logoutBtn {
   float: right;
   margin: 25px 2px 20px 20px;
   padding: 4px 5px;
   border-radius: 5px;
+  cursor: pointer;
 }

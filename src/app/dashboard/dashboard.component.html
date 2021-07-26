@@ -1,4 +1,3 @@
-
 <div class="wrapper">
   <!-- Groups: -->
 
@@ -8,58 +7,68 @@
         <mat-list-option class="group-option" selected="true" (click)="updateGroupSelection(group)"></mat-list-option>
         <div class="group-field-content">
           {{group.name}}
-          <i (click)="openGroupDialog(group)" class="fas fa-edit" id="group-edit"></i>
-          <i class="fas fa-circle" [style.color]="group.color"></i>
+          <div id="group-field-items">
+            <i (click)="openGroupDialog(group)" class="fas fa-edit" id="group-edit"></i>
+            <i class="fas fa-circle" [style.color]="group.color"></i>
+          </div>
         </div>
       </div>
     </mat-selection-list>
-    <br>
-    <button mat-button id="add-group" (click)="openGroupDialog(null)"><i class="fas fa-plus"></i><span id="add-group-text">add new group</span>
-    </button>
+    <section id="add-group-wrapper">
+      <button mat-button id="add-group" (click)="openGroupDialog(null)"><i class="fas fa-plus"></i><span
+        id="add-group-text">add new group</span>
+      </button>
+    </section>
   </section>
 
   <!-- Todos: -->
+  <section class="todo-wrapper">
+    <section class="todo-container">
+      <mat-accordion multi="true">
 
-  <section class="todo-container">
-    <mat-accordion multi="true">
+        <!-- Group header -->
+        <mat-expansion-panel *ngFor="let group of selectedGroups" expanded="{{getGroupTodos(group).length !== 0}}">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="todo-title-field">
+              {{group.name}}
+            </mat-panel-title>
+            <mat-panel-description class="todo-description-field">
+              {{getGroupTodos(group).length}}
+              <span><i class="fas fa-plus" (click)="createTodo(group)"></i></span>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
-      <!-- Group header -->
-      <mat-expansion-panel *ngFor="let group of selectedGroups" expanded="{{getGroupTodos(group).length !== 0}}">
-        <mat-expansion-panel-header>
-          <mat-panel-title class="todo-title-field">
-            {{group.name}}
-          </mat-panel-title>
-          <mat-panel-description class="todo-description-field">
-            {{getGroupTodos(group).length}}
-            <span><i class="fas fa-plus" (click)="createTodo(group)"></i></span>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <!-- To-Do points -->
-        <mat-selection-list>
-          <section class="todo-field" *ngFor="let todo of getGroupTodos(group)">
-            <mat-list-option class="todo-field-option" [selected]="todo.completed" (click)="checked(todo)">
-              {{todo.title}}
-              <span class="todo-date" *ngIf="todo.expirationDate !== ''">till {{todo.expirationDate}}: {{todo.description}}</span>
-              <span class="todo-date" *ngIf="todo.expirationDate === ''">{{todo.description}}</span>
-            </mat-list-option>
-            <span class="todo-field-items">
+          <!-- To-Do points -->
+          <mat-selection-list>
+            <section class="todo-field" *ngFor="let todo of getGroupTodos(group)">
+              <mat-list-option class="todo-field-option" [selected]="todo.completed" (click)="checked(todo)">
+                {{todo.title}}
+                <span *ngIf="todo.description !== ''">
+                  <span class="todo-date" *ngIf="todo.expirationDate !== ''">Till {{todo.expirationDate}}
+                    <span *ngIf="todo.description !== ''">:</span> {{todo.description}}</span>
+                  <span class="todo-date" *ngIf="todo.expirationDate === ''">{{todo.description}}</span>
+                  </span>
+              </mat-list-option>
+              <span class="todo-field-items">
               <i (click)="editTodo(todo)" class="fas fa-edit"></i>
               <i (click)="delete(todo)" class="fas fa-trash"></i>
             </span>
-          </section>
-        </mat-selection-list>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </section>
-  <!-- add to-do button -->
-  <section id="add-todo">
-    <mat-form-field>
-      <mat-label id="newTitleLabel">Title</mat-label>
-      <input matInput placeholder="" value="" id="todo-add-new-title">
-    </mat-form-field>
-    <button mat-button (click)="createTodoWithTitle()"><i class="fas fa-plus"></i>
-      <span id="add-todo-text">add new ToDo</span>
-    </button>
+            </section>
+          </mat-selection-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </section>
+    <!-- add to-do button -->
+    <section id="add-todo-wrapper">
+      <section id="add-todo">
+        <mat-form-field>
+          <mat-label id="newTitleLabel">Title</mat-label>
+          <input matInput placeholder="" value="" id="todo-add-new-title">
+        </mat-form-field>
+        <button mat-button (click)="createTodoWithTitle()"><i class="fas fa-plus"></i>
+          <span id="add-todo-text">add new ToDo</span>
+        </button>
+      </section>
+    </section>
   </section>
 </div>

@@ -16,15 +16,14 @@ export class NewTodoComponent implements OnInit {
   submitPressed: boolean;
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: any, private apiService: ApiService, public dialog: MatDialog) {
-    console.log(data.length);
     this.group = null;
     this.title = null;
     this.oldTodo = null;
     if (data.length == 1) {
       this.group = data[0]
-    } else if(data.length == 2) {
+    } else if (data.length == 2) {
       this.title = data[1];
-    } else if(data.length == 3) {
+    } else if (data.length == 3) {
       this.oldTodo = data[2];
     }
   }
@@ -34,7 +33,7 @@ export class NewTodoComponent implements OnInit {
     this.groups = await this.apiService.getGroups();
     if (this.title !== null) {
       (document.getElementById('newTitle') as HTMLInputElement).value = this.title;
-    } else if(this.oldTodo !== null) {
+    } else if (this.oldTodo !== null) {
       (document.getElementById('title-text') as HTMLInputElement).innerHTML = 'Update this ToDo';
       (document.getElementById('newTitle') as HTMLInputElement).value = this.oldTodo.title;
       (document.getElementById('newDescription') as HTMLInputElement).value = this.oldTodo.description;
@@ -59,7 +58,7 @@ export class NewTodoComponent implements OnInit {
     const title = (document.getElementById('newTitle') as HTMLInputElement).value;
     if (title === '') {
       const label = document.getElementById('newTitleLabel');
-      label.style.color = 'red';
+      label.style.color = 'RED';
       return;
     }
 
@@ -69,7 +68,7 @@ export class NewTodoComponent implements OnInit {
     const expirationDate = (document.getElementById('newExpirationDate') as HTMLInputElement).value;
 
     this.submitPressed = true;
-    if(this.oldTodo === null) {
+    if (this.oldTodo === null) {
       this.apiService.createTodo(title, description, author, groupId, expirationDate);
       window.location.href = 'http://localhost:4200';
     } else {
