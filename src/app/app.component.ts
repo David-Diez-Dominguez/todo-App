@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {NewTodoComponent} from './new-todo/new-todo.component';
 import { FirebaseService } from './services/firebase.service';
@@ -13,7 +13,9 @@ export class AppComponent {
 
   title = 'firebase-angular-auth';
   isSignedIn = false
+  
 
+  @Output() isLogout = new EventEmitter<void>()
   constructor(private dialog: MatDialog, public firebaseService : FirebaseService) {
   }
   ngOnInit(){
@@ -26,13 +28,20 @@ export class AppComponent {
     await this.firebaseService.signup(email,password)
     if(this.firebaseService.isLoggedIn)
     this.isSignedIn = true
+    
   }
   async onSignin(email:string,password:string){
     await this.firebaseService.signin(email,password)
     if(this.firebaseService.isLoggedIn)
     this.isSignedIn = true
-    window.location.href="google.de";
   }
+
+  logout(){
+    this.firebaseService.logout()
+    this.isLogout.emit()
+    window.location.href=""
+  }
+
   handleLogout(){
     this.isSignedIn = false
   }

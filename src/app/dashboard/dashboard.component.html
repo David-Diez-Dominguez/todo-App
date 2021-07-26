@@ -1,3 +1,4 @@
+
 <div class="wrapper">
   <!-- Groups: -->
 
@@ -39,7 +40,7 @@
           <section class="todo-field" *ngFor="let todo of getGroupTodos(group)">
             <mat-list-option class="todo-field-option" [selected]="todo.completed" (click)="checked(todo)">
               {{todo.title}}
-              <span class="todo-date" *ngIf="todo.expirationDate !== ''">Till {{todo.expirationDate}}: {{todo.description}}</span>
+              <span class="todo-date" *ngIf="todo.expirationDate !== ''">till {{todo.expirationDate}}: {{todo.description}}</span>
               <span class="todo-date" *ngIf="todo.expirationDate === ''">{{todo.description}}</span>
             </mat-list-option>
             <span class="todo-field-items">

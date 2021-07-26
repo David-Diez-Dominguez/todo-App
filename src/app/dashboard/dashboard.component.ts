@@ -21,7 +21,6 @@ export class DashboardComponent implements OnInit {
   dropdownActivated: boolean;
 
 
- @Output() isLogout = new EventEmitter<void>()
   constructor(private apiService: ApiService, private dialog: MatDialog, public firebaseService: FirebaseService) {
     this.dropdownActivated = false
     this.selectedGroups = [];
@@ -94,9 +93,6 @@ export class DashboardComponent implements OnInit {
     return this.todos.filter(value => value.groupId === group.groupId);
   }
 
-  logout(){
-    this.firebaseService.logout()
-    this.isLogout.emit()
-  }
+  
 
 }

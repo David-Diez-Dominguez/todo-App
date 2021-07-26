@@ -1,24 +1,30 @@
 <div id=navbar>
   <i id="home" onclick="window.location.href='http://localhost:4200/dashboard';" class="far fa-list-alt"><span id="todoapp">ToDo Manager</span></i>
-  <i id="addnewbutton" (click)="onCreate()" class="fas fa-plus-square"></i>
-  <button (click)="logout()">Logout</button>
+  <i *ngIf="isSignedIn" id="addnewbutton" (click)="onCreate()" class="fas fa-plus-square"></i>
+  <i class="fas fa-sign-out-alt fa-2x" *ngIf="isSignedIn" (click)="logout()" id="logoutBtn"></i>
+
+
 </div>
 
 <!--<app-dashboard></app-dashboard>-->
 
-<div style="text-align: center; margin-top: -10px;">
+<div id="auth">
 <div *ngIf="!isSignedIn">
   <h2>Sign up</h2>
-  <input type="text" #emailSignup placeholder="E-mail"/>
-  <input type="text" #passwordSignup placeholder="Password"/>
-  <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Sign up</button>
+  <input type="text" #emailSignup placeholder="Username / E-Mail" class="inputField" autocomplete="off"/>
+  <input type="password" #passwordSignup placeholder="Password" class="inputField" autocomplete="off"/>
+  <br>
+  <br>
+  <button (click)="onSignup(emailSignup.value,passwordSignup.value)" class="authBtn">Sign up</button>
 </div>
 <br>
 <div *ngIf="!isSignedIn">
   <h2>Sign In</h2>
-  <input type="text" #email  placeholder="E-mail"/>
-  <input type="text" #password placeholder="Password"/>
-  <button (click)="onSignin(email.value,password.value)">Sign in</button>
+  <input type="text" #email  placeholder="Username / E-Mail" class="inputField" autocomplete="off"/>
+  <input type="password" #password placeholder="Password" class="inputField" autocomplete="off"/>
+  <br>
+  <br>
+  <button (click)="onSignin(email.value,password.value)"class="authBtn" >Sign in</button>
 </div>
-<app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
+<app-dashboard *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-dashboard>
 </div>
